@@ -35,20 +35,27 @@ app.post("/api/notes", (req, res) => {
     console.log("saved");
   });
   res.send("newNote");
+  console.log(newNote);
 });
 
-app.delete("/api/notes/id", (req, res) => {
+app.delete("/api/notes/:id", (req, res) => {
   const idNumber = req.params.id;
   const dbObj = require("./db/db.json");
   console.log("ID NUM", idNumber);
 
   const newObj = dbObj.filter((item) => item.id != idNumber);
-  fs.writeFile("./db/dbjson", JSON.stringify(newObj), function (err) {
+  fs.writeFile("./db/db.json", JSON.stringify(newObj), function (err) {
     if (err) throw err;
     console.log("Item deleted");
   });
+
   res.send("newObj");
+  //   res.redirect("/api/notes");
 });
+
+// function reloadFunction() {
+//   location.reload(true);
+// }
 
 app.get("*", (req, res) => {
   const url = req.url === "/" ? "index.html" : req.url;
