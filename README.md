@@ -54,3 +54,5 @@ The application can be run by going to:
 ## Links
 
 Deployed: https://blooming-lake-04085.herokuapp.com/
+
+GitHub Repository: https://github.com/jongregory75/Note-Taker
