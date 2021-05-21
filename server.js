@@ -53,10 +53,6 @@ app.delete("/api/notes/:id", (req, res) => {
   //   res.redirect("/api/notes");
 });
 
-// function reloadFunction() {
-//   location.reload(true);
-// }
-
 app.get("*", (req, res) => {
   const url = req.url === "/" ? "index.html" : req.url;
   res.sendFile(path.join(__dirname, "/public/index.html"));
